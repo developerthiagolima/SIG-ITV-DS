@@ -2,10 +2,12 @@ package org.itv.sig.service;
 
 import java.util.List;
 
-import org.itv.sig.entity.Indicador;
+import org.itv.sig.entity.Resultado;
 
-public interface IndicadorService {
+public interface ResultadoService {
 
-	List<Indicador> getTodosIndicadores();
+	List<Resultado> getResultadosPorIndicador(Long indicadorId);
+
+	List<Resultado> getResultadosPorIndicadorMunicipio(Long indicadorId, Long geoCodigo);
 
 }

@@ -7,27 +7,25 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Sig</title>
 		
-		<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="css/sig.css" type="text/css">
+		<link rel="stylesheet" href="css/ol.css" type="text/css">
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 		
-		<script src="js/util.js" type="text/javascript"></script>
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		
-		<script type="text/javascript">
-			$( document ).ready(function() {
-				carregarIndicador('#indicador', 'api/indicadores');
-			});
-		</script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+		<script src="js/ol.js" type="text/javascript"></script>
+		<script src="js/d3.v5.min.js" type="text/javascript"></script>
+		<script src="js/sigMap.js" type="text/javascript"></script>
+		<script src="js/sig.js" type="text/javascript"></script>
 	</head>
-	<body>
-		<main class="bd-content p-5" id="content" role="main">
+	<body onload="init()">
+		<main class="bd-content p-5" role="main">
 			<div class="container">
 	        	<label for="indicador">Indicador:</label>
-				<select id="indicador"></select>
+				<select id="indicador" onchange="carregarInficador(this.value)"></select>
 	        </div>
 	        <div class="container">
 	        	<div class="row">
-	        		<div id="map" class="map"></div>
+	        		<div id="mapa"></div>
 	        	</div>
 	        </div>
 		</main>

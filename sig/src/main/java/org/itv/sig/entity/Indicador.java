@@ -1,9 +1,9 @@
 package org.itv.sig.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -12,16 +12,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table(name = "indicadores")
+@Entity @Table(name = "resultados")
 @NoArgsConstructor @AllArgsConstructor
 @Data @Builder
-public class Indicador {
+public class Resultado {
 
 	@Id
-    @SequenceGenerator(name = "indicador_id_generator", sequenceName = "indicador_id_seq")
-    @GeneratedValue(generator = "indicador_id_generator")
+    @SequenceGenerator(name = "resultado_id_generator", sequenceName = "resultado_id_seq")
+    @GeneratedValue(generator = "resultado_id_generator")
     private Long id;
 	
-	@Column(nullable = false)
-    private String nome;
+	@ManyToOne
+    private Municipio municipio;
+	
+	@ManyToOne
+	private Indicador indicador;
+	
+	private Double valor;
+	
 }

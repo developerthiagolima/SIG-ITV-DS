@@ -2,22 +2,27 @@ package org.itv.sig.service.impl;
 
 import java.util.List;
 
-import org.itv.sig.entity.Indicador;
-import org.itv.sig.repository.IndicadorRepository;
-import org.itv.sig.service.IndicadorService;
+import org.itv.sig.entity.Resultado;
+import org.itv.sig.repository.ResultadoRepository;
+import org.itv.sig.service.ResultadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class IndicadorServiceImpl implements IndicadorService{
+public class ResultadoServiceImpl implements ResultadoService{
 
 	@Autowired
-    private IndicadorRepository indicadorRepository;
+    private ResultadoRepository resultadoRepository;
 
 	@Override
-	public List<Indicador> getTodosIndicadores() {
-		return indicadorRepository.buscarTodosIndicadores();
+	public List<Resultado> getResultadosPorIndicador(Long indicadorId) {
+		return resultadoRepository.buscarPorIndicador(indicadorId);
+	}
+
+	@Override
+	public List<Resultado> getResultadosPorIndicadorMunicipio(Long indicadorId, Long geoCodigo) {
+		return resultadoRepository.buscarPorIndicadorMunicipio(indicadorId, geoCodigo);
 	}
 }
