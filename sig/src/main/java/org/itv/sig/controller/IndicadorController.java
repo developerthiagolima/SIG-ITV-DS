@@ -2,8 +2,8 @@ package org.itv.sig.controller;
 
 import java.util.List;
 
-import org.itv.sig.entity.Resultado;
-import org.itv.sig.service.ResultadoService;
+import org.itv.sig.entity.Indicador;
+import org.itv.sig.service.IndicadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/api/resultados")
+@RequestMapping("/api/indicadores")
 @Slf4j
-public class ResultadoController {
+public class IndicadorController {
 
 	@Autowired
-	private ResultadoService resultadoService;
+	private IndicadorService resultadoService;
 
-	@GetMapping("/{indicador_id}")
-	public List<Resultado> getResultadosPorIndicador(@PathVariable("indicador_id") Long indicadorId) {
+	@GetMapping("/{tipoId}")
+	public List<Indicador> getResultadosPorIndicador(@PathVariable("tipoId") Long tipoId) {
 		log.info("process=get-resultadosPorIndicador");
-		return resultadoService.getResultadosPorIndicador(indicadorId);
+		return resultadoService.getIndicadorPorTipo(tipoId);
 	}
 
-	@GetMapping("/{indicador_id}/{municipio_geocodigo}")
-	public List<Resultado> getResultadosPorIndicadorMunicipio(@PathVariable("indicador_id") Long indicadorId,
+	@GetMapping("/{tipoId}/{municipio_geocodigo}")
+	public List<Indicador> getResultadosPorIndicadorMunicipio(@PathVariable("tipoId") Long tipoId,
 			@PathVariable("municipio_geocodigo") Long geoCodigo) {
 		log.info("process=get-resultadosPorIndicadorMunicipio");
-		return resultadoService.getResultadosPorIndicadorMunicipio(indicadorId, geoCodigo);
+		return resultadoService.getIndicadorPorTipoMunicipio(tipoId, geoCodigo);
 	}
 
 }

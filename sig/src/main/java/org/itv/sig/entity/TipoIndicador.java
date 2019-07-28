@@ -12,14 +12,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table(name = "indicadores")
+@Entity @Table(name = "tipo_indicadores")
 @NoArgsConstructor @AllArgsConstructor
 @Data @Builder
-public class Indicador {
+public class TipoIndicador {
 
 	@Id
-    @SequenceGenerator(name = "indicador_id_generator", sequenceName = "indicador_id_seq")
-    @GeneratedValue(generator = "indicador_id_generator")
+    @SequenceGenerator(name = "tipoindicador_id_generator", sequenceName = "tipoindicador_id_seq")
+    @GeneratedValue(generator = "tipoindicador_id_generator")
     private Long id;
 	
 	@Column(nullable = false)

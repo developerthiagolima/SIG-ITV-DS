@@ -2,10 +2,10 @@ package org.itv.sig.service;
 
 import java.util.List;
 
-import org.itv.sig.entity.Indicador;
+import org.itv.sig.entity.TipoIndicador;
 
-public interface IndicadorService {
+public interface TipoIndicadorService {
 
-	List<Indicador> getTodosIndicadores();
+	List<TipoIndicador> getTodosTipoIndicadores();
 
 }
