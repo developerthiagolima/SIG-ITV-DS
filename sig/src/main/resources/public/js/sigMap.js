@@ -31,7 +31,7 @@ function criarMap(municipios){
 	});
 }
 
-function carregarInficador(indicadorId){
+function carregarIndicador(indicadorId){
 	if(indicadorId == 0){
 		vectorLayer.getSource().getFeatures().forEach((feature, index) => {
 			feature.setStyle(criarMapStyle(feature, 'lightgoldenrodyellow'))

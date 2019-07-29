@@ -21,7 +21,7 @@
 		<main class="bd-content p-5" role="main">
 			<div class="container">
 	        	<label for="indicador">Indicador:</label>
-				<select id="indicador" onchange="carregarInficador(this.value)"></select>
+				<select id="indicador" onchange="carregarIndicador(this.value)"></select>
 	        </div>
 	        <div class="container">
 	        	<div class="row">
